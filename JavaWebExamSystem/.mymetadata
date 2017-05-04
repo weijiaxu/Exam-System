@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="JavaWebExamSystem"
+  id="myeclipse.1430208954912"
+  context-root="/JavaWebExamSystem"
+  j2ee-spec="5.0"
+  archive="JavaWebExamSystem.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

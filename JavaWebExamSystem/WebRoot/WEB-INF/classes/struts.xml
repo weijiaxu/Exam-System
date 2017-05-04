@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<constant name="struts.multipart.maxSize" value="50000000" /><!--此行是限制上传文件大小必须写-->  
+
+<package name="struts2"  extends="struts-default" >
+
+<action name="LoginAction" class="singleselect.LoginAction">
+<result name="LoginSuccess">/LoginSuccess.jsp</result>
+<result name="LoginFail">/Login.jsp</result>
+<result name="Teacher">/teacher/teacher.jsp</result>
+</action>
+
+<action name="SingleTest" class="singleselect.SingleTest">
+<result name="SubmitSuccess">/SubmitSuccess.jsp</result>
+<result name="SubmitFail">/singleselect.jsp</result>
+</action>
+
+<action name="login" class="ksxt.KsxtAction">
+		<result name="success">/operationfore.jsp</result>
+		 
+</action>
+<action name="loginSuccess" class="ksxt.UploadAction" method="up">
+			<interceptor-ref name="fileUpload">
+            <param name="allowedTypes">application/octet-stream,application/msword,application/pdf,application/zip,application/x-zip-compressed,image/bmp,image/png,image/gif,image/jpeg,image/pjpeg</param>
+            <param name="maximumSize">50000000</param>
+            </interceptor-ref>
+            <interceptor-ref name="defaultStack"></interceptor-ref>  
+            <result name="input">/operationfore.jsp</result>
+            <result name="success">/operationfore.jsp</result>
+            <result name="end">/end.jsp</result>
+            
+</action>
+
+
+<action name="Teacher" class="singleselect.TeacherAction">
+<result name="pingfeng">/teacher/pingfeng.jsp</result>
+<result name="main">/teacher/main.jsp</result>
+<result name="operation">/teacher/Operation.jsp</result>
+<result name="teststate">/teacher/teststate.jsp</result>
+</action>
+
+
+        <action name="show" class="Action.ShowAction"> 
+            <result >/teacher/main.jsp</result> 
+        </action> 
+         <action name="add" class="Action.AddAction"> 
+            <result name="success">/teacher/main.jsp</result> 
+            <result name="fail">/teacher/add.jsp</result> 
+        </action>
+         <action name="update" class="Action.UpdateAction"> 
+            <result name="success">/teacher/main.jsp</result> 
+            <result name="fail">/teacher/update.jsp</result>
+            <result name="failall">/teacher/main.jsp</result>  
+        </action>
+         <action name="delete" class="Action.DeleteAction"> 
+            <result name="success">/teacher/main.jsp</result> 
+            <result name="fail">/teacher/delete.jsp</result> 
+        </action>
+
+
+   <action name="grade1" class="grade.BeforeAction">
+   <result name="success">/teacher/success.jsp</result>
+    <result name="empty">/teacher/empty.jsp</result>
+   <result name="fail">/teacher/fail.jsp</result>
+   </action>
+</package>
+
+
+</struts>    
